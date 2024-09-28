@@ -1,0 +1,69 @@
+body {
+    background-color: #01092c;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.center {
+    text-align: center;
+    position: absolute;
+    top: 30%; /* Startpunkt des Textes in der Mitte des Bildschirms */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveToTop 8s ease-in-out forwards; /* Bewegung nach oben */
+}
+
+h1 {
+    font-size: 10vw; /* Dynamische Schriftgröße */
+    white-space: nowrap;
+    opacity: 0; /* Unsichtbar beim Start */
+    animation: fadeInTitle 4s ease-in-out forwards; /* Animation für das Einblenden */
+}
+
+h2 {
+    font-size: 3vw; /* Dynamische Schriftgröße */
+    margin-top: 20px; /* Abstand zum Titel */
+    white-space: nowrap;
+    opacity: 0; /* Unsichtbar beim Start */
+    animation: fadeInSubtitle 4s ease-in-out forwards 2s; /* Verzögerte Animation nach dem Titel */
+}
+
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(1.5); /* Größer und weiter unten zu Beginn */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* Endgröße und Endposition */
+    }
+}
+
+/* Keyframe-Animation für das Einblenden des Untertitels */
+@keyframes fadeInSubtitle {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Leicht nach unten versetzt zu Beginn */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Endposition */
+    }
+}
+
+/* Keyframe-Animation für die Bewegung nach oben */
+@keyframes moveToTop {
+    0% {
+        top: 50%; /* Startpunkt näher an der Mitte */
+    }
+    100% {
+        top: 10%; /* Endpunkt oben am Bildschirm */
+    }
+}
